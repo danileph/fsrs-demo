@@ -1,3 +1,2 @@
-export { FSRS45 } from './fsrs45';
-export { test } from './test';
+export { createFsrs } from './lib/createFsrs';
 export type { ReviewState, Grade } from './types';
