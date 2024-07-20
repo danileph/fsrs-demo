@@ -1,6 +1,6 @@
 import { FSRS } from "./fsrs";
 import { Grade, IFSRS, ReviewState } from "../types";
-import { formatDateToString } from "../../../lib/dateHelper";
+import { formatDateToString } from "../../../lib/date-helpers";
 
 export const test = () => {
   // Create an instance of the FSRS45 class
