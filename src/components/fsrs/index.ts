@@ -1,2 +1,3 @@
 export { createFsrs } from './lib/createFsrs';
-export type { ReviewState, Grade } from './types';
+export type { ReviewState } from './types';
+export { Grade } from './types';
