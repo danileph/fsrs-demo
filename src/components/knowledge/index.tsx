@@ -1,6 +1,7 @@
 export { KnowledgeCard } from './ui/knowledge-card';
 export { CreateKnowledgeCard } from './ui/create-knowledge-card';
 export { MutateKnowledgeWindow} from './ui/mutate-knowledge-window';
+export { KnowledgeLineChart } from './ui/knowledge-line-chart';
 
 export { useCreateKnowledge } from './services/create-knowledge/create-knowledge-hook';
 export { useUpdateKnowledge } from './services/update-knowledge/update-knowledge-hook';
