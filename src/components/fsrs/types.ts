@@ -19,4 +19,5 @@ export interface IFSRS {
   createInitialReviewState(grade: Grade, reviewDate?: Date): ReviewState;
   review(reviewState: ReviewState, grade: Grade, reviewDate: Date): ReviewState;
   getRetrievability(reviewState: ReviewState, currentDate?: Date): number;
+  getRemainingDaysToRemember(reviewState: ReviewState, currentDate?: Date): number;
 }

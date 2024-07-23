@@ -3,9 +3,9 @@ import { getLocalStorageItem, setLocalStorageItem } from "../../../../lib/local-
 import { LocalStorageKeys } from "../../lib/consts";
 import { createLearningHistory } from "../../lib/learning-history-helpers";
 import { Knowledge, LearningAction } from "../../types";
-import { UpdateKnowledgeRequestBody } from "./update-knowledge-dto";
+import { ReviewKnowledgeRequestBody } from "./review-knowledge-dto";
 
-export const updateKnowledgeService = async (id: string, data: UpdateKnowledgeRequestBody, date: Date = new Date()) => {
+export const updateKnowledgeService = async (id: string, data: ReviewKnowledgeRequestBody, date: Date = new Date()) => {
     const knowledges = getLocalStorageItem<Knowledge[]>(LocalStorageKeys.Knowledges);
 
     if (!knowledges) {
@@ -18,7 +18,7 @@ export const updateKnowledgeService = async (id: string, data: UpdateKnowledgeRe
         return;
     }
 
-    const newLearningHistory = createLearningHistory({ action: LearningAction.Updated, date: date, reviewState: data.reviewState });
+    const newLearningHistory = createLearningHistory({ action: LearningAction.Reviewed, date: date, reviewState: data.reviewState });
 
     knowledges[knowledgeIndex] = { ...knowledges[knowledgeIndex], ...data, learningHistory: [...knowledges[knowledgeIndex].learningHistory, newLearningHistory] };
 

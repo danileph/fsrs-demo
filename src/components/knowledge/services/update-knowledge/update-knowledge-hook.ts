@@ -7,7 +7,7 @@ import { LocalStorageKeys } from "../../lib/consts";
 
 export const useUpdateKnowledge = () => {
     const result = useMutation({
-        mutationFn: ({id, data} : {id: string, data: UpdateKnowledgeRequestBody}) => updateKnowledgeService(id, data),
+        mutationFn: ({id, data, date} : {id: string, data: UpdateKnowledgeRequestBody, date?: Date}) => updateKnowledgeService(id, data, date),
     });
     const queryClient = useQueryClient();
 

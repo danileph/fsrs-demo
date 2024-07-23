@@ -151,4 +151,10 @@ export class FSRS implements IFSRS {
       targetRetrievability
     };
   }
+
+  public getRemainingDaysToRemember(reviewState: ReviewState, currentDate: Date = new Date()): number {
+    const { lastReviewDate, rememberInterval } = reviewState;
+    const daysSinceLastReview = this.getDaysSinceLastReview(lastReviewDate, currentDate);
+    return rememberInterval - daysSinceLastReview;
+  }
 }

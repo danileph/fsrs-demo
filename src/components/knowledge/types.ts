@@ -13,7 +13,7 @@ export type LearningHistory = {
     id: string;
     date: Date;
     action: LearningAction;
-    reviewState: ReviewState;
+    reviewState?: ReviewState;
 }
 
 export enum LearningAction {
