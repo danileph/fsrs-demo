@@ -1,26 +1,30 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { CreateKnowledgeRequestBody } from "./create-knowledge-dto";
-import { createKnowledgeService } from "./create-knowledge-service"
-import { useEffect } from "react";
+import { ReviewKnowledgeRequestBody } from "./review-knowledge-dto";
+import { updateKnowledgeService } from "./review-knowledge-service";
 import { message } from "antd";
+import { useEffect } from "react";
 import { LocalStorageKeys } from "../../lib/consts";
 
-export const useCreateKnowledge = () => {
+export const useReviewKnowledge = () => {
     const result = useMutation({
-        mutationFn: ({data, date} : {data: CreateKnowledgeRequestBody, date?: Date}) => createKnowledgeService(data, date),
+        mutationFn: ({id, data, date} : {id: string, data: ReviewKnowledgeRequestBody, date?: Date}) => updateKnowledgeService(id, data, date),
     });
     const queryClient = useQueryClient();
 
     useEffect(() => {
+        console.log(result);
+    }, [result]);
+
+    useEffect(() => {
         if (result.isError && result.error) {
             console.error(result.error);
-            message.error("Произошла ошибка при создании карточки");
+            message.error("Произошла ошибка при повторение карточки");
         }
     }, [result.isError, result.error]);
 
     useEffect(() => {
         if (result.isSuccess) {
-            message.success("Карточка успешно создана");
+            message.success("Карточка успешно повторена");
         }
     }, [result.isSuccess]);
 

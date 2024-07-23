@@ -1,0 +1,1 @@
+export { LineChart } from './ui/line-chart';

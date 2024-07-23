@@ -4,6 +4,7 @@ import { MutateKnowledgeWindowMode } from "../lib/consts"
 import { useCreateKnowledge } from "../services/create-knowledge/create-knowledge-hook"
 import { useUpdateKnowledge } from "../services/update-knowledge/update-knowledge-hook"
 import { Knowledge } from "../types"
+import { useCurrentDate } from "../../../store"
 
 export interface IMutateKnowledgeWindowProps extends React.HTMLAttributes<HTMLDivElement> {
     open: boolean,
@@ -16,7 +17,7 @@ export const MutateKnowledgeWindow: FC<IMutateKnowledgeWindowProps> = ({onClose,
     const title = mode === MutateKnowledgeWindowMode.Create ? "Добавить карточку" : "Редактировать карточку";
     const { mutate: createKnowledge, isSuccess: isCreteateKnowledgeSuccess } = useCreateKnowledge();
     const { mutate: updateKnowledge, isSuccess: isUpdateKnowledgeSuccess } = useUpdateKnowledge();
-    const [ form ] = Form.useForm();
+    const { currentDate } = useCurrentDate();
 
     // const handleOnOkClick = () => {
     //     if (mode === MutateKnowledgeWindowMode.Create) {
@@ -36,9 +37,9 @@ export const MutateKnowledgeWindow: FC<IMutateKnowledgeWindowProps> = ({onClose,
         console.log(values);
         
         if (mode === MutateKnowledgeWindowMode.Create) {
-            createKnowledge({data: values});
+            createKnowledge({data: values, date: currentDate});
         } else if (mode === MutateKnowledgeWindowMode.Update && knowledge) {
-            updateKnowledge({id: knowledge.id, data: values});
+            updateKnowledge({id: knowledge.id, data: values, date: currentDate});
         }
     };
       
