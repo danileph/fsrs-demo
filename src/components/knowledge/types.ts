@@ -22,3 +22,9 @@ export enum LearningAction {
     Updated = 'updated',
     Reviewed = 'reviewed',
 }
+
+export type ChartData = {
+    "Дата повторения": string,
+    "Интервал припоминания": number,
+    "Название карточки": string,
+}
