@@ -1,5 +1,5 @@
-import { FC, useEffect, useState } from "react"
-import { CreateKnowledgeCard, KnowledgeCard, KnowledgeLineChart, MutateKnowledgeWindow, useGetKnowledges } from "../components/knowledge";
+import { FC } from "react"
+import { KnowledgeLineChart, useGetKnowledges } from "../components/knowledge";
 import { Layout } from "../components/layout/ui";
 
 export interface IStatisticsPageProps extends React.HTMLAttributes<HTMLDivElement> {}
