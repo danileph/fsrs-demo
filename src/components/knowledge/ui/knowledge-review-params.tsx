@@ -1,5 +1,4 @@
 import { FC } from "react"
-import { Knowledge } from "../types"
 import { KnowledgeReviewParam } from "./knowledge-review-param";
 import { formatDateToStringWithTime } from "../../../lib/date-helpers";
 import { roundToInteger, toPercentNumber } from "../lib/number-helpers";

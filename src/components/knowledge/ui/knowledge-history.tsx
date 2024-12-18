@@ -1,22 +1,15 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { Knowledge, LearningAction, LearningHistory } from "../types";
-import { Progress, Timeline, Typography } from "antd";
-import { formatDateToString, formatDateToStringWithTime } from "../../../lib/date-helpers";
+import { Timeline, Typography } from "antd";
+import { formatDateToStringWithTime } from "../../../lib/date-helpers";
 import { KnowledgeReviewParam } from "./knowledge-review-param";
-import { ScrollArea } from "../../ui";
-import { roundToInteger, toPercentNumber } from "../lib/number-helpers";
-import { useCurrentDate } from "../../../store";
-import { useFsrs } from "../../../hooks/fsrs-hook";
-import { getProgressColor } from "../lib/get-color-helpers";
-import { getPreviousActionHistory } from "../lib/learning-history-helpers";
+import { roundToInteger } from "../lib/number-helpers";
 
 export interface IKnowledgeHistoryProps {
     knowledge: Knowledge;
 }
 
 export const KnowledgeHistory: FC<IKnowledgeHistoryProps> = ({ knowledge, ...props }) => {
-    const { currentDate } = useCurrentDate();
-    const { getRetrievability } = useFsrs();
 
     const getTimelineItemColor = (action: LearningAction) => {
         switch (action) {

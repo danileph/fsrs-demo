@@ -18,7 +18,7 @@ export const KnowledgeReviewer: FC<IKnowledgeReviewerProps> = ({ knowledge, open
     const [ side, setSide ] = useState<'front' | 'back'>('front');
     const [ showHistory, setShowHistory ] = useState(false);
     const { review, createInitialReviewState } = useFsrs();
-    const { mutate: reviewKnowledge, isSuccess: reviewKnowledgeSuccess } = useReviewKnowledge();
+    const { mutate: reviewKnowledge } = useReviewKnowledge();
     const { currentDate, setCurrentDate } = useCurrentDate();
 
     const resetStates = () => {
